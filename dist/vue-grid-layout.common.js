@@ -2436,7 +2436,8 @@ function applyToTag (styleElement, obj) {
     // this makes source maps inside style tags work properly in Chrome
     css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
     // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+    css += `
+/*# sourceMappingURL=data:application/json;base64,${btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))))} */`
   }
 
   if (styleElement.styleSheet) {
